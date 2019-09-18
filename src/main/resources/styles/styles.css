@@ -1,0 +1,433 @@
+/* IBB Management Application CSS */
+
+#background {
+    -light-black: rgb(74, 75, 78);
+    -dark-highlight: rgb(87, 89, 92);
+    -dark-black: rgb(39, 40, 40);
+    -darkest-black: rgb(5, 5, 5);
+
+    -mid-gray: rgb(216, 222, 227);
+
+    -bg-color: #F3F5F7;
+    -page-toolbar-bg-color: #EAF1F9;  
+    -sidebar-bg-color: #E0E9F5; 
+    
+    -fx-background-color: -bg-color;
+}
+
+/* pane bg color */
+.pane-bg-color {
+    -fx-background-color: -bg-color;
+}
+
+/* app header bar */
+.app-header-bar {
+    -fx-base: -dark-black;
+    -fx-font-size: 16px;
+    -fx-background-color:
+        linear-gradient(to bottom, derive(-fx-base,-30%), derive(-fx-base,-60%)),
+        linear-gradient(to bottom, -light-black 2%, -dark-black 98%);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: .9em 0.416667em .9em 0.416667em;
+    -fx-effect: dropshadow(two-pass-box,black,5,.2,0,0);
+}
+
+.app-header-bar .title {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ffffff;
+    -fx-text-alingment: center;
+}
+
+.app-header-button-bar .button {
+    -fx-background-color:
+        -darkest-black,
+        -dark-highlight,
+        linear-gradient(to bottom, -light-black 2%, -dark-black 98%);
+    -fx-background-insets: 0, 1 1 1 0, 2 1 1 1;
+    -fx-background-radius: 0;
+    -fx-padding: 0.4em 1.0em 0.4em 1.0em;
+    -fx-cursor: hand;    
+}
+ 
+.app-header-button-bar .button.first {
+    -fx-background-insets: 0, 1, 2 1 1 1;
+    -fx-background-radius: 3 0 0 3, 2 0 0 2, 2 0 0 2;
+}
+ 
+.app-header-button-bar .button.last {
+    -fx-background-insets: 0, 1 1 1 0, 2 1 1 1;
+    -fx-background-radius: 0 3 3 0, 0 2 2 0, 0 2 2 0;
+}
+ 
+.app-header-button-bar .button:pressed {
+    -fx-background-color:
+        -darkest-black,
+        rgb(55, 57, 58),
+        linear-gradient(to top, -light-black 2%, -dark-black 98%);
+}
+
+.app-header-button-bar .app-logo {
+    -fx-font-size : 36px;
+    -fx-font-weight: bold;
+    -fx-fill: #42C0FB;
+    -fx-cursor: hand;
+}
+
+/* pop over menu */
+#pop-over-app-menu .button {
+    -fx-font-size: 14px;
+    -fx-pref-width: 170;
+    -fx-pref-height: 80;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
+}
+
+#pop-over-app-menu .button:hover {
+    -fx-background-color: #F4F4F4;
+    -fx-border-color: transparent, #AAAAAA;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+#pop-over-app-menu .button:pressed, 
+#pop-over-app-menu .button:hover:pressed {
+    -fx-background-color: #F4F4F4;
+    -fx-border-color: transparent, #AAAAAA;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+/* dashboard */
+#dashboard-menu {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 50 0 5 0;
+}
+
+#dashboard-menu .button {
+    -fx-pref-width: 170;
+    -fx-pref-height: 80;
+    -fx-cursor: hand;
+}
+
+/* sidebar */
+#sidebar-menu {
+    -fx-background-color: -sidebar-bg-color;
+    -fx-padding: 20 10 10 10;
+    -fx-pref-width: 220;
+}
+
+#sidebar-menu .menu-title {
+    -fx-font-size : 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6B6F74;
+}
+
+#sidebar-menu .hyperlink {
+    -fx-graphic-text-gap: 8;    
+    -fx-text-fill: #6B6F74;
+}
+
+/* page tool bar */
+.page-tool-bar {
+    -fx-background-color: -page-toolbar-bg-color;
+}
+
+/* overview pane */
+.overview-pane {
+    -fx-background-color: -page-toolbar-bg-color;
+    -fx-padding: 10 10 10 242;
+}
+
+.overview-pane .label {
+    -fx-text-fill: #000000;
+}
+
+/* font bold */
+.font-bold {
+    -fx-font-weight: bold;
+}
+
+
+/* controls */
+
+#page-header {
+    -fx-background-color: -page-header-bg-color;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.1), 1, 1, 1, 2);
+    -fx-padding: 10;
+}
+
+#page-header .page-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 500;
+    -fx-fill: -body-font-color;
+}
+
+#box-panel-default {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #c1c1c1 transparent transparent transparent;
+    -fx-border-width: 2 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+}
+
+#box-panel-primary {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #3c8dbc #E9E9E9 #E9E9E9 #E9E9E9;
+    -fx-border-width: 2 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+}
+
+#box-panel-info {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #00c0ef #E9E9E9 #E9E9E9 #E9E9E9;
+    -fx-border-width: 2 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+}
+
+#box-panel-danger {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #f56954 #E9E9E9 #E9E9E9 #E9E9E9;
+    -fx-border-width: 2 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+}
+
+#box-panel-success {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #00a65a #E9E9E9 #E9E9E9 #E9E9E9;
+    -fx-border-width: 2 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+}
+
+#box-panel-warning {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #f39c12 #E9E9E9 #E9E9E9 #E9E9E9;
+    -fx-border-width: 2 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+}
+
+#box-panel-preview {
+    -fx-background-color: -bg-color;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: #A2ABB6;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-style: solid;
+    -fx-border-radius: 0;
+}
+
+/* search box */
+.search-box-icon {
+    -fx-background-color: null;
+    -fx-background-image: url("../icons16/search.png");
+    -fx-background-position: left center;
+    -fx-background-repeat: no-repeat;
+}
+
+.search-box {
+    -fx-font-size: 13px;
+    -fx-text-fill: #363636;
+    -fx-background-radius: 15, 14;
+    -fx-padding: 0 25 0 25;
+}
+.search-box:focused {
+    -fx-background-radius: 15, 14, 16, 14;
+}
+.search-clear-button {
+    -fx-background-color: null;
+    -fx-background-image: url("../icons16/clear.png");
+    -fx-background-position: right center;
+    -fx-background-repeat: no-repeat;
+    -fx-padding: 4px;
+}
+
+.search-clear-button:hover {
+    -fx-background-image: url("../icons16/clear-hover.png");
+}
+
+/* hidden splitter */
+#hidden-splitter {
+    -fx-background-color: null;
+    -fx-padding: 0 0 0 0; 
+}
+
+#hidden-splitter *.split-pane-divider,
+        #hidden-splitter *.vertical-grabber, 
+        #hidden-splitter *.horizontal-grabber {
+    -fx-background-color: null;
+    -fx-border-color: null;
+    -fx-padding: 5px;
+}
+
+/* titled separator */
+.titled-separator *.label {
+    -fx-font-weight: bold;
+    -fx-padding: 0 4px 0 0;
+}
+
+.separator *.line { 
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+}
+
+/* button bar pane */
+#button-bar-pane-toolbar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 0 0 0 0;
+    -fx-border-color: transparent, #C8C8C8;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+#button-bar-pane-toolbar .button {
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+}
+
+#button-bar-pane-toolbar .button.large {
+    -fx-pref-width: 170;
+    -fx-pref-height: 80;
+}
+
+#button-bar-pane-toolbar .button.medium {
+    -fx-pref-width: 180;
+    -fx-pref-height: 50;
+}
+
+#button-bar-pane-toolbar .button:hover {
+    -fx-background-color: #C1D2EE;
+    -fx-border-color: transparent, #52658F;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+#button-bar-pane-toolbar .button:pressed, 
+#button-bar-pane-toolbar .button:hover:pressed {
+    -fx-background-color: #C1D2EE;
+    -fx-border-color: transparent, #52658F;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+#button-bar-pane-toolbar .button.selected {
+    -fx-background-color: #C1D2EE;
+    -fx-border-color: transparent, #52658F;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll-pane {
+   -fx-background-color: transparent;
+}
+
+.table-view:focused {
+  -fx-background-color: transparent,-fx-box-border,-fx-control-inner-background;
+  -fx-background-insets: -1.4, 0, 1;
+  -fx-background-radius: 1.4, 0, 0;
+  -fx-padding: 1;
+}
+
+.list-view:focused {
+  -fx-background-color: transparent,-fx-box-border,-fx-control-inner-background;
+  -fx-background-insets: -1.4, 0, 1;
+  -fx-background-radius: 1.4, 0, 0;
+  -fx-padding: 1;
+}
+
+/* splash progress bar */
+.splash-progress-bar > .bar {
+    -fx-background-insets: 1 1 2 1;
+    -fx-padding: 0.20em;
+}
+
+/* validation */
+.error {
+    -fx-effect: dropshadow(three-pass-box, darkred, 7, 0, 0, 0);
+}
+
+.warning {
+    -fx-effect: dropshadow(three-pass-box, gold, 14, 0, 0, 0);
+}
+
+/* menu button */
+.menu-button.left-pill {
+    -fx-background-radius: 3 0 0 3, 3 0 0 3, 2 0 0 2, 1 0 0 1;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+}
+
+.menu-button.center-pill {
+    -fx-background-radius: 0;
+    -fx-background-insets: 0 0 -1 0, 0 0 0 0, 1 1 1 0, 2 2 2 1 ;
+}
+
+.menu-button.right-pill {
+    -fx-background-radius: 0 3 3 0, 0 3 3 0, 0 2 2 0, 0 1 1 0;
+    -fx-background-insets: 0 0 -1 0, 0, 1 1 1 0, 2 2 2 1;
+}
+
+.menu-button.left-pill:focused {
+    -fx-background-insets: -0.2 0 -0.2 -0.2, 1, 2, -1.4 0 -1.4 -1.4, 2.6;
+    -fx-background-radius: 3 0 0 3, 2 0 0 2, 1 0 0 1, 4 0 0 4, 1 0 0 1;
+}
+
+.menu-button.center-pill:focused {
+    -fx-background-insets: -0.2 0 -0.2 -1, 1 1 1 0, 2 2 2 1, -1.4 0 -1.4 -1, 2.6 2.6 2.6 1.6;
+    -fx-background-radius: 0, 0, 0, 0, 0;
+}
+
+.menu-button.right-pill:focused {
+    -fx-background-insets: -0.2 -0.2 -0.2 -1, 1 1 1 0, 2 2 2 1, -1.4 -1.4 -1.4 -1, 2.6 2.6 2.6 1.6;
+    -fx-background-radius: 0 3 3 0, 0 2 2 0, 0 1 1 0, 0 4 4 0, 0 1 1 0;
+}
+
+.menu-button:selected.left-pill:focused {
+    -fx-background-insets: -0.2 0 -0.2 -0.2, 1, -1.4 0 -1.4 -1.4, 2.6;
+    -fx-background-radius: 3 0 0 3, 2 0 0 2, 4 0 0 4, 0;
+}
+
+.menu-button:selected.center-pill:focused {
+    -fx-background-insets: -0.2 0 -0.2 -1, 1 1 1 0, -1.4 0 -1.4 -1, 2.6 2.6 2.6 1.6;
+    -fx-background-radius: 0, 0, 0, 0;
+}
+
+.menu-button:selected.right-pill:focused {
+    -fx-background-insets: -0.2 -0.2 -0.2 -1, 1 1 1 0, -1.4 -1.4 -1.4 -1, 2.6 2.6 2.6 1.6;
+    -fx-background-radius: 0 3 3 0, 0 2 2 0, 0 4 4 0, 0;
+}
+
+
+/* end of controls */

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence                  
+                http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="ibbManagementPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- entities -->
+        <class>com.lagossoftware.ibbfx.entity.Adresse</class>
+        <class>com.lagossoftware.ibbfx.entity.AdresseStichwort</class>
+        <class>com.lagossoftware.ibbfx.entity.Anrede</class>
+        <class>com.lagossoftware.ibbfx.entity.AppRight</class>
+        <class>com.lagossoftware.ibbfx.entity.AppUser</class>
+        <class>com.lagossoftware.ibbfx.entity.AppUserGroup</class>
+        <class>com.lagossoftware.ibbfx.entity.Arbeitsaufwand</class>
+        <class>com.lagossoftware.ibbfx.entity.Bundesland</class>
+        <class>com.lagossoftware.ibbfx.entity.Eingangsrechnung</class>
+        <class>com.lagossoftware.ibbfx.entity.Fachbereich</class>
+        <class>com.lagossoftware.ibbfx.entity.Fahrtkasse</class>
+        <class>com.lagossoftware.ibbfx.entity.FahrtkasseDetail</class>
+        <class>com.lagossoftware.ibbfx.entity.FahrtkasseWaehrung</class>
+        <class>com.lagossoftware.ibbfx.entity.Geschaeftsbereich</class>
+        <class>com.lagossoftware.ibbfx.entity.Konto</class>
+        <class>com.lagossoftware.ibbfx.entity.Land</class>
+        <class>com.lagossoftware.ibbfx.entity.Params</class>
+        <class>com.lagossoftware.ibbfx.entity.Planung</class>
+        <class>com.lagossoftware.ibbfx.entity.Stichwort</class>
+        <class>com.lagossoftware.ibbfx.entity.Titel</class>
+        <class>com.lagossoftware.ibbfx.entity.Waehrung</class>
+        <class>com.lagossoftware.ibbfx.entity.Zgfaktor</class>
+        <class>com.lagossoftware.ibbfx.entity.Zuschuss</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ibbmanagement"/>
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.115.1:5432/ibbmanagement"/>-->
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="sa"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.connection.pool_size" value="5"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

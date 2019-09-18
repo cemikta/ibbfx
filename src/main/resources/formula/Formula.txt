@@ -1,0 +1,342 @@
+
+Maßnahmekalkulation Formeln:
+
+1. Fahrtkosten:
+
+- zahlende Teilnehmer Gesamtkosten = Teilnehmerkosten X Zahlende TN de Anzahl
+- zahlende Teilnehmer Teilnehmerkosten = Bahnfahrt pro Person + Flugkosten pro Person + 
+  Weitere Farhten im Land pro Person
+
+- nichtzahlende Teilnehmer Gesamtkosten = Teilnehmerkosten X nicht Zahlende TN de Anzahl
+- nichtzahlende Teilnehmer Teilnehmerkosten = Bahnfahrt pro Person + Flugkosten pro Person + 
+  Weitere Farhten im Land pro Person
+
+- ausländische Teilnehmer Gesamtkosten = Teilnehmerkosten X (zahlende TN ausl. Anzahl + nichtzahlende TN ausl. Anzahl) 
+- ausländische Teilnehmer Teilnehmerkosten = Fahrtkosten für ausl. TN pro Person + Weitere Farhten im Land pro Person   
+
+- Maßnahmeabhängige Fahrtkosten Gesamtkosten = Bustransfer Gesamt
+- Maßnahmeabhängige Fahrtkosten Teilnehmerkosten = Gesamtkosten / zahlende TN Anzahl!
+
+- Begleitpersonen Gesamtkosten = (Bahnfahrt pro Person + Flugkosten pro Person + Weitere Farhten im Land pro Person) X 
+  Begleitpersonen Anzahl (Haubtberufliche Mitarbeiter + Honorar Mitarbeiter + Unbezhalte Mit.) + 
+  Zusätzliche Reisekosten Gesamt
+- Begleitpersonen Teilnehmerkosten = Begleitpersonen Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl) 
+
+- Visakosten TeilnehmerInnen Gesamtkosten = Teilnehmerkosten X (zahlende TN de Anzahl + nichzahlende TN de Anzahl)
+- Visakosten TeilnehmerInnen Teilnehmerkosten = Visa Gebühr pro Person 
+
+- Visakosten Begleitpersonen Gesamtkosten = Visa Gebühr pro Person X Begleitpersonen Anzahl
+  (Haubtberufliche Mitarbeiter + Honorar Mitarbeiter + Unbezhalte Mit.)
+- Visakosten Begleitpersonen Teilnehmerkosten = Begleitpersonen Gesamtkosten / 
+  (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)
+ 
+- Fahrtkosten Gesamt Gesamtkosten = alle addieren
+- Fahrtkosten Teilnehmerkosten = alle addieren
+- Fahrtkosten Gesamt prozent = Prozent wird von Gesamtkosten der Massnahme berechnet!
+
+2. Unterkunft & verpflegung:
+
+- Für de TN Berechnung = Pauschalpreis Unterkunft & verpflegung pro Person + 
+  ((Übernachtungskosten Pro Nacht X Anzahl nächte pro de TN) + 
+  (Verpflegungskosten pro Tag X Verpflegungstage pro de TN) X zahlende TN de Anzahl) 
+
+- Für ausl. TN Berechnung = Pauschalpreis Unterkunft & verpflegung pro Person + 
+  ((Übernachtungskosten Pro Nacht X Anzahl nächte pro ausl. TN) + 
+  (Verpflegungskosten pro Tag X Verpflegungstage pro ausl. TN) X zahlende TN ausl. Anzahl) 
+
+- zahlende Teilnehmer Gesamtkosten = Für de TN Berechnung + Für ausl. TN Berechnung 
+- zahlende Teilnehmer Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)
+
+- nichtzahlende Teilnehmer Gesamtkosten = ((Übernachtungskosten Pro Nacht X Anzahl nächte pro de TN) + 
+  (Verpflegungskosten pro Tag X Verpflegungstage pro de TN) + Pauschalpreis Unterkunft & verpflegung pro Person) X 
+  nichtzahlende TN de Anzahl
+- nichtzahlende Teilnehmer Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)
+
+- ausländische Teilnehmer Gesamtkosten = ((Übernachtungskosten Pro Nacht X Anzahl nächte pro ausl.TN) + 
+  (Verpflegungskosten pro Tag X Verpflegungstage pro ausl. TN) + Pauschalpreis Unterkunft & verpflegung pro Person) X 
+  nichtzahlende TN ausl Anzahl
+- ausländische Teilnehmer Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)
+
+- Für Ausländeische Berechnung = (Ausländeische Mitarbeiter X Unterkunftstage X Übernachtungskosten pro Nacht) + 
+  (Ausländeische Mitarbeiter X Verpflegungstage X Verpflegungskosten pro Tag) 
+
+- Begleitpersonen Gesamtkosten = Für Ausländeische Berechnung + 
+  ((Übernachtungskosten Pro Nacht + Verpflegungskosten pro Tag) X VA-Tage (berechnet in Planung-Overview)) + 
+  Pauschalpreis Unterkunft & verpflegung pro Person) X Begleitpersonen Anzahl 
+  (Deutsche Mitarbeiter (Haubtberufliche Mitarbeiter + Honorar Mitarbeiter + Unbezhalte Mit. + Fremde) + 
+  Zusätzliche Verpflegungskosten Gesamt
+- Begleitpersonen Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)
+
+- Unterkunft & verpflegung Gesamt Gesamtkosten = alle addieren
+- Unterkunft & verpflegung Teilnehmerkosten = alle addieren
+- Unterkunft & verpflegung Gesamt prozent = Prozent wird von Gesamtkosten der Massnahme berechnet!
+
+3. Honorarkosten:
+
+- PARAM_1: Honorare für IBB-Begleitung Veranstaltung (Money-Field) z.B 100,00 
+- Honorare für IBB-Begleitung Gesamtkosten = VA-Tage X PARAM_1 X Honorar Mitarbeiter des IBB  
+- Honorare für IBB-Begleitung Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)    
+
+- Honorare für ausländische Begleitung Gesamtkosten = Ausländische Mitarbeiter X Honorartage X Honorarsatz  
+- Honorare für ausländische Begleitung Teilnehmerkosten = Gesamtkosten / 
+  (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)  
+
+- Honorare für Visabeschaffung Gesamtkosten = Nebenkosten (Honorar)   
+- Honorare für Visabeschaffung Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)    
+
+- Honorarkosten Gesamt Gesamtkosten = alle addieren
+- Honorarkosten Teilnehmerkosten = alle addieren
+- Honorarkosten Gesamt prozent = Prozent wird von Gesamtkosten der Massnahme berechnet!
+
+4. Programmkosten:
+
+- Eintrittgelder deutsche TN Gesamtkosten = Teilnehmerkosten X zahlende TN de Anzahl     
+- Eintrittgelder deutsche TN Teilnehmerkosten = Eintrittgelder pro de TN    
+
+- Eintrittgelder ausl. TN Gesamtkosten = Teilnehmerkosten X (zahlende TN ausl. Anzahl + nichtzahlende TN ausl. Anzahl)    
+- Eintrittgelder ausl. TN Teilnehmerkosten = Eintrittgelder pro ausl. TN    
+
+- Programmkosten Gesamtkosten = Führungen Gesamt + Externe ReferentInnen Gesamt + Externe DolmetscherInnen Gesamt + 
+Materialkosten Gesamt + (Eintrittgelder pro de TN X nichtzahlende TN de Anzahl) 
+- Programmkosten Teilnehmerkosten = Gesamtkosten / (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)   
+
+- Programmkosten Gesamt Gesamtkosten = alle addieren
+- Programmkosten Teilnehmerkosten = alle addieren
+- Programmkosten Gesamt prozent = Prozent wird von Gesamtkosten der Massnahme berechnet!
+
+5. Versicherungen:
+
+- Versicherung deutsche TN Teilnehmerkosten = VA in Deutschland
+===============================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// Reisepreissicherung
+Wenn ZahlendeTNDe >= 1
+Reisepreissicherung = Planung-Parameters-ReisepreissicherungProPersonTag;
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters-RegressversicherungVaInDeBis8Tage
+Regressversicherung = Planung-Parameters-RegressversicherungVaInDeBis22Tage
+Regressversicherung = Planung-Parameters-RegressversicherungVaInDeBis42Tage
+
+// Summe
+VersicherungDeutscheTNTeilnehmerkosten = sumKombinierteHaftpflichtUndUnfallVersicherung +
+  Reisepreissicherung + Regressversicherung
+
+- Versicherung deutsche TN Teilnehmerkosten = VA im Ausland
+===========================================================
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// auslandsreisekrankenversicherung
+Auslandsreisekrankenversicherung = auslandsreisekrankenVersicherungProPersonTag X VA-Tage
+
+// reisepreissicherung
+// TODO: Markus keine reisepreissicherung im Ausland?
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis8Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis22Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis42Tage
+
+VersicherungDeutscheTNTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  Auslandsreisekrankenversicherung + sumRegressversicherung
+
+- Versicherung deutsche TN Gesamtkosten = VA in Deutschland oder im Ausland
+===========================================================================
+
+VersicherungDeutscheTNGesamtkosten = VersicherungDeutscheTNTeilnehmerkosten X zahlendeNichtzahlendeTNDe
+
+- Versicherung ausl. TN Teilnehmerkosten = VA in Deutschland
+============================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// Auslandsreisekrankenversicherung
+Auslandsreisekrankenversicherung = auslandsreisekrankenVersicherungProPersonTag X VA-Tage
+
+// Reisepreissicherung
+Wenn ZahlendeTNAusl >= 1
+Reisepreissicherung = Planung-Parameters.ReisepreissicherungProPersonTag
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters-RegressversicherungVaInDeBis8Tage
+Regressversicherung = Planung-Parameters-RegressversicherungVaInDeBis22Tage
+Regressversicherung = Planung-Parameters-RegressversicherungVaInDeBis42Tage
+
+// Summe
+VersicherungAuslTNTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  sumAuslandsreisekrankenversicherung + Reisepreissicherung + Regressversicherung
+
+- Versicherung ausl. TN Teilnehmerkosten = VA im Ausland
+========================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// Auslandsreisekrankenversicherung
+Auslandsreisekrankenversicherung = auslandsreisekrankenVersicherungProPersonTag X VA-Tage
+
+// Reisepreissicherung
+// TODO: Markus keine reisepreissicherung im Ausland?
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis8Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis22Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis42Tage
+
+VersicherungAuslTNTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  sumAuslandsreisekrankenversicherung + sumRegressversicherung
+
+- Versicherung ausl. TN Gesamtkosten =  VA in Deutschland oder im Ausland
+=========================================================================
+VersicherungAuslTNGesamtkosten = VersicherungAuslTNTeilnehmerkosten X zahlendeNichtzahlendeTNAusl
+
+- Versicherung Begleitpersonen Teilnehmerkosten = VA in Deutschland
+===================================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// Reisepreissicherung
+wenn ZahlendeTnDe >= 1
+Reisepreissicherung = Planung-Parameters.ReisepreissicherungProPersonTag
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters.RegressversicherungVaInDeBis8Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaInDeBis22Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaInDeBis42Tage
+
+BegleitpersonenDeutscheTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  Reisepreissicherung + Regressversicherung
+
+- Versicherung Begleitpersonen Teilnehmerkosten = VA im Ausland
+===============================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// Auslandsreisekrankenversicherung
+Auslandsreisekrankenversicherung = auslandsreisekrankenVersicherungProPersonTag X VA-Tage
+
+// Reisepreissicherung
+// TODO: Markus keine reisepreissicherung im Ausland?
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis8Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis22Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis42Tage
+
+// Summe
+BegleitpersonenDeutscheTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  Auslandsreisekrankenversicherung + Regressversicherung
+
+- Versicherung Begleitpersonen Deutsche Gesamtkosten = VA in Deutschland oder im Ausland
+========================================================================================
+
+BegleitpersonenDeutscheGesamtkosten = BegleitpersonenDeutscheTeilnehmerkosten X begleitpersonenDeOhneFremde
+
+
+-Begleitpersonen Ausl Teilnehmerkosten - VA in Deutschland
+==========================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag X VA-Tage
+
+// Auslandsreisekrankenversicherung
+Auslandsreisekrankenversicherung = auslandsreisekrankenVersicherungProPersonTag X VA-Tage
+
+// reisepreissicherung
+wenn NfZahlendeTnAusl >= 1
+Reisepreissicherung = Planung-Parameters.ReisepreissicherungProPersonTag
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters.RegressversicherungVaInDeBis8Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaInDeBis22Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaInDeBis42Tage
+
+// Summe
+BegleitpersonenAuslTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  sumAuslandsreisekrankenversicherung + Reisepreissicherung + Regressversicherung
+
+-Begleitpersonen Ausl Teilnehmerkosten - VA im Ausland
+======================================================
+
+// kombinierte haftpflicht und unfallVersicherung
+KombinierteHaftpflichtUndUnfallVersicherung = haftpflichtUnfallVersicherungProPersonTag + VA-Tage
+
+// Auslandsreisekrankenversicherung
+Auslandsreisekrankenversicherung = auslandsreisekrankenVersicherungProPersonTag X VA-Tage
+
+// Reisepreissicherung
+// TODO: Markus keine reisepreissicherung im Ausland?
+
+// Regressversicherung
+Wenn Regressversicherung in GUI checked, wird entsprechende Parameter genommen:
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis8Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis22Tage
+Regressversicherung = Planung-Parameters.RegressversicherungVaImAuslandBis42Tage
+
+// Summe
+BegleitpersonenAuslTeilnehmerkosten = KombinierteHaftpflichtUndUnfallVersicherung +
+  Auslandsreisekrankenversicherung + Regressversicherung
+
+- Begleitpersonen Ausl Gesamtkosten - VA in Deutschland oder im Ausland
+=======================================================================
+BegleitpersonenAuslGesamtkosten = BegleitpersonenAuslTeilnehmerkosten X auslMitarbeiter
+
+- Begleitpersonen Teilnehmerkosten
+==================================
+BegleitpersonenTeilnehmerkosten = BegleitpersonenDeutscheTeilnehmerkosten + BegleitpersonenAuslTeilnehmerkosten
+
+- Begleitpersonen Gesamtkosten
+==============================
+
+BegleitpersonenGesamtkosten = BegleitpersonenDeutscheGesamtkosten + BegleitpersonenAuslGesamtkosten
+
+- Versicherung Gesamt Gesamtkosten = alle addieren
+- Versicherung Teilnehmerkosten = alle addieren
+- Versicherung Gesamt prozent = Prozent wird von Gesamtkosten der Massnahme berechnet!
+
+6. IBB-Strukturkosten:
+
+- PARAM_2 IBB-Strukturkosten pro TN pro Tag (z.B 16 Eur)
+- IBB-Strukturkosten Gesamtkosten = PARAM_2 X VA-Tage X (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)   
+- IBB-Strukturkosten Teilnehmerkosten = PARAM_2 X VA-Tage   
+- IBB-Strukturkosten Prozent wird von Gesamtkosten der Massnahme berechnet!
+
+GESAMTKOSTEN DER MASSNAHME: 
+
+- Gesamtkosten der Massnahme Gesamtkosten = Fahrtkosten Gesamt +  Unterkunft & verpflegung Gesamt Gesamtkosten 
+  usw. (alle addieren)
+- Gesamtkosten der Massnahme Teilnehmerkosten = Fahrtkosten Teilnehmerkosten gesamt + 
+  Unterkunft & verpflegung Teilnehmerkosten usw. (alle addieren)
+- Gesamtkosten der Massnahme Prozent ist 100%
+
+GESAMTPREIS DER MASSNAHME: 
+
+- Gesamtpreis der Massnahme Gesamtkosten = alle Gesamtkosten addieren  
+- Gesamtpreis der Massnahme Teilnehmerkosten = alle Gesamtkosten addieren   
+
+VERKAUFSPREIS: 
+
+- Verkaufspreis Gesamtkosten = Teilnehmerkosten X (zahlende TN de Anzahl + zahlende TN ausl. Anzahl)   
+- Verkaufspreis Teilnehmerkosten = Festgesetzte Veranstaltungspreis (es ist pro Person)   
+
+IBB-Erlös
+
+- PARAM_5 IBB-Erlös Prozent (Decimal) z.B 5% 
+- IBB-Erlös: IBB-Strukturkosten + 5% von Gesamtpreis der Massnahme Gesamtkosten   
+
+Prozent Berechnung = (z.B Honorarkosten) Gesamt / (GESAMTKOSTEN DER MASSNAHME / 100) 
+

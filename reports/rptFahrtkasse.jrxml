@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptFahrtkasse" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3f6db4e4-0147-4c53-9b59-5703dc9d46ff">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT f.fahrtkasse_nr, f.belegdatum, f.betrag, f.zahlungsart, f.zahlen_am,
+a.vorname, a.nachname, a.strasse, a.plz, a.ort, a.iban, a.bic, a.bank, a.konto_nr, a.blz,
+p.planung_nr, p.zusatz
+FROM adresse a, fahrtkasse f, planung p
+WHERE f.fahrtkasse_nr = 1001
+AND f.adresse_id = a.adresse_id
+AND f.planung_id = p.planung_id;]]>
+	</queryString>
+	<field name="fahrtkasse_nr" class="java.lang.Long"/>
+	<field name="belegdatum" class="java.sql.Timestamp"/>
+	<field name="betrag" class="java.math.BigDecimal"/>
+	<field name="zahlungsart" class="java.lang.String"/>
+	<field name="zahlen_am" class="java.sql.Timestamp"/>
+	<field name="vorname" class="java.lang.String"/>
+	<field name="nachname" class="java.lang.String"/>
+	<field name="strasse" class="java.lang.String"/>
+	<field name="plz" class="java.lang.String"/>
+	<field name="ort" class="java.lang.String"/>
+	<field name="iban" class="java.lang.String"/>
+	<field name="bic" class="java.lang.String"/>
+	<field name="bank" class="java.lang.String"/>
+	<field name="konto_nr" class="java.lang.String"/>
+	<field name="blz" class="java.lang.String"/>
+	<field name="planung_nr" class="java.lang.Long"/>
+	<field name="zusatz" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="117" height="30" uuid="bab33c1e-35c4-4ef7-a980-7a1a860ce15d"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Farhtkasse Nr.]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="62" width="555" height="1" uuid="132c65c5-cafe-481f-974d-1a0ac516d42a"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="425" splitType="Stretch">
+			<textField>
+				<reportElement x="117" y="-61" width="224" height="30" uuid="f2e61bd8-7745-4d4b-a8e2-df1063d80a39"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fahrtkasse_nr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="-23" width="79" height="20" uuid="dfca169e-27ea-49c6-a912-8e614b7e04da"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Belegdatum:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="482" y="-23" width="69" height="20" uuid="a0a4497f-40f3-4948-89f2-4579ae61c399"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{belegdatum}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="19" width="57" height="20" uuid="64b937b4-ed86-4407-aeba-bbc212b6ace8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Betrag:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="384" y="19" width="99" height="20" uuid="1d5f7c91-e99c-4b14-b8d3-802743a3b196"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{betrag}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="39" width="134" height="20" uuid="99efe48c-867e-4cb5-b805-d1a1ea380d16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zweck: Fahrtkasse für ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="82" y="19" width="175" height="20" uuid="6e600bff-0f8f-4421-9834-33c9d0572701"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zahlungsart}.replace("UEBERWEISUNG", "Überweisung").replace("BAR", "Bar").replace("SCHECK", "Scheck").replace("KARTENZAHLUNG", "Kartenzahlung")
+]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="82" y="39" width="72" height="20" uuid="cfbf80b3-366a-44cf-816c-2a25d4ce2d1e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zahlen_am}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="70" width="279" height="20" uuid="e19e96c9-afef-46f0-9a68-7e3cdef57784"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vorname} + " " + $F{nachname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="90" width="279" height="20" uuid="e0a94369-dda7-4428-95d6-50f522aa6893"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strasse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="110" width="60" height="20" uuid="fd3ef799-0f84-4692-bf61-5421c56604df"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{plz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="110" width="218" height="20" uuid="e0a12fed-6da1-4b91-9ee5-2861b9031e5c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ort}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="142" width="279" height="20" uuid="7a4bcf97-b482-45d0-8b40-3dff8e4b4a30"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="222" width="62" height="20" uuid="dfe44323-ea4b-4924-af56-60932c96f4f8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BLZ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="222" width="218" height="20" uuid="22a77503-8b4c-4e26-bba6-bd9dca2b3490"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{blz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="202" width="218" height="20" uuid="df8239a0-23ee-4724-ab51-6f8c4262a0f6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{konto_nr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="39" width="91" height="20" uuid="3f468d35-911d-4fe4-b3d7-20c46cdbbcf7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{planung_nr} + "-" + $F{zusatz}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="19" width="79" height="20" uuid="75e4f690-cc1d-4062-8574-d2532d618b7e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Zahlungsart:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="39" width="79" height="20" uuid="3fa59729-18dc-4244-9ba5-dd8d4127ea83"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Zahlen am:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="39" width="29" height="20" uuid="2f3e3da1-6fb7-4744-8e54-b26fe9b25858"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[an:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="187" width="92" height="20" uuid="5c2c2c8f-6fbc-448f-9a7c-d605d3ddbb98"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[angewiesen:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="187" width="102" height="20" uuid="ac6122eb-6132-48b1-b5ac-b8a7a9cbf7e9"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="143" width="92" height="20" uuid="03779870-61da-4038-962c-9e87447e498a"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[sachl. richtig:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="141" width="102" height="20" uuid="698c172f-98d5-4f64-b4c4-968c3bdb725c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="164" width="102" height="20" uuid="723f06a0-3271-4269-987a-2d4454aa6ce0"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="165" width="92" height="20" uuid="8f73aaca-a1f5-4ffa-9cbb-fb68d6a57245"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[rechn. richtig:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="202" width="62" height="20" uuid="56f5c399-f9d5-4429-b664-28a067c9c322"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Konto-Nr:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="116" width="92" height="20" uuid="9b38f129-af9f-43c5-93c7-d1bc81d8a9f2"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[weiter an:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="307" y="0" width="1" height="246" uuid="ef06ed45-390a-481d-993c-fcb27552a6f7"/>
+			</line>
+			<line>
+				<reportElement x="3" y="246" width="549" height="1" uuid="d6aa39a8-32e7-44b1-9b6c-b6d0bb90170c"/>
+			</line>
+			<line>
+				<reportElement x="308" y="70" width="244" height="1" uuid="8048f788-511b-46de-9b1b-2908d2ea3771"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="162" width="60" height="20" uuid="1b751ce2-a833-455c-ac3b-3b56a30d4e3c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[IBAN:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="162" width="218" height="20" uuid="5e7a0424-cc45-4682-87f1-67db86bb5092"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iban}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="182" width="60" height="20" uuid="ef84a4e0-96a4-4b48-9caf-b0ac1a9b605f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BIC/Swift:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="182" width="218" height="20" uuid="4b9d53cc-e2fa-4316-8669-a17789a4a339"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bic}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

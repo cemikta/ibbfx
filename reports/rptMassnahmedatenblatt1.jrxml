@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptMassnahmedatenblatt1" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3f6db4e4-0147-4c53-9b59-5703dc9d46ff">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="145"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="738c7426-b40c-417a-9f7a-0e3200c258af"/>
+	<parameter name="zahlendeNichtzahlendeTNDe" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="zahlendeNichtzahlendeTNAusl" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="begleitpersonen" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="teilnehmerGesamt" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT p.planung_nr, p.zusatz, p.titel, p.veranstaltung_ort, p.veranstaltung_beginn,
+p.veranstaltung_ende, g.abkuerzung as geschaeftsbereich, p.tage_nach_wbg,
+f.abkuerzung as fachbereich, p.anmeldung_ibb, p.anmeldung_partner, p.vorbereitungstreffen_beginn,
+p.vorbereitungstreffen_ende, p.vorbereitungstreffen_ort, p.nachbereitungstreffen_ort,
+p.nachbereitungstreffen_beginn, p.nachbereitungstreffen_ende,
+a1.nachname as mitarbeiter1_nachname, a1.kostenstelle as mitarbeiter1_kostenstelle, a2.nachname as mitarbeiter2_nachname, a2.kostenstelle as mitarbeiter2_kostenstelle,
+p.bedingung3, p.bedingung4, p.bedingung5, p.bedingung6, p.preis1, p.preis2, p.preis3, p.preis4,
+p.preis5, p.preis6, kurzbeschreibung_eb_plan
+FROM planung p
+LEFT JOIN geschaeftsbereich g ON p.geschaeftsbereich_id = g.geschaeftsbereich_id
+LEFT JOIN fachbereich f ON p.fachbereich_id = f.fachbereich_id
+LEFT JOIN adresse a1 ON a1.adresse_id = p.mitarbeiter1_id
+LEFT JOIN adresse a2 ON a2.adresse_id = p.mitarbeiter2_id
+WHERE p.planung_id = 1;]]>
+	</queryString>
+	<field name="planung_nr" class="java.lang.Long"/>
+	<field name="zusatz" class="java.lang.String"/>
+	<field name="titel" class="java.lang.String"/>
+	<field name="veranstaltung_ort" class="java.lang.String"/>
+	<field name="veranstaltung_beginn" class="java.sql.Timestamp"/>
+	<field name="veranstaltung_ende" class="java.sql.Timestamp"/>
+	<field name="geschaeftsbereich" class="java.lang.String"/>
+	<field name="tage_nach_wbg" class="java.lang.Integer"/>
+	<field name="fachbereich" class="java.lang.String"/>
+	<field name="anmeldung_ibb" class="java.lang.Boolean"/>
+	<field name="anmeldung_partner" class="java.lang.Boolean"/>
+	<field name="vorbereitungstreffen_beginn" class="java.sql.Timestamp"/>
+	<field name="vorbereitungstreffen_ende" class="java.sql.Timestamp"/>
+	<field name="vorbereitungstreffen_ort" class="java.lang.String"/>
+	<field name="nachbereitungstreffen_ort" class="java.lang.String"/>
+	<field name="nachbereitungstreffen_beginn" class="java.sql.Timestamp"/>
+	<field name="nachbereitungstreffen_ende" class="java.sql.Timestamp"/>
+	<field name="mitarbeiter1_nachname" class="java.lang.String"/>
+	<field name="mitarbeiter1_kostenstelle" class="java.lang.Integer"/>
+	<field name="mitarbeiter2_nachname" class="java.lang.String"/>
+	<field name="mitarbeiter2_kostenstelle" class="java.lang.Integer"/>
+	<field name="bedingung3" class="java.lang.String"/>
+	<field name="bedingung4" class="java.lang.String"/>
+	<field name="bedingung5" class="java.lang.String"/>
+	<field name="bedingung6" class="java.lang.String"/>
+	<field name="preis1" class="java.math.BigDecimal"/>
+	<field name="preis2" class="java.math.BigDecimal"/>
+	<field name="preis3" class="java.math.BigDecimal"/>
+	<field name="preis4" class="java.math.BigDecimal"/>
+	<field name="preis5" class="java.math.BigDecimal"/>
+	<field name="preis6" class="java.math.BigDecimal"/>
+	<field name="kurzbeschreibung_eb_plan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="240" height="24" uuid="bab33c1e-35c4-4ef7-a980-7a1a860ce15d"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maßnahmedatenblatt 1]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="26" width="555" height="1" uuid="132c65c5-cafe-481f-974d-1a0ac516d42a"/>
+			</line>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="481" y="6" width="74" height="20" uuid="4cefa501-25a8-4563-8e67-fe8d00527009"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="393" y="6" width="88" height="20" uuid="4772a2e5-1915-4cde-8d05-da0defe5f44a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ausdruck vom]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="607" splitType="Stretch">
+			<textField>
+				<reportElement x="393" y="6" width="162" height="20" uuid="4e133a3c-0a37-4255-b75d-8a96d948e967"/>
+				<textElement textAlignment="Right" rotation="None">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{planung_nr} + "-" + $F{zusatz}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="6" width="33" height="20" uuid="7c8f87b1-595c-480a-a080-2ba26492d482"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Titel:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="6" width="334" height="20" uuid="1cbfa070-2f64-42b7-af7b-270a833d23dd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="28" width="32" height="20" uuid="2df63141-0300-4df5-8881-d3294aa5f3eb"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[in:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="28" width="334" height="20" uuid="405bbfda-81df-4fdc-898d-d8fe557980a7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veranstaltung_ort}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="50" width="32" height="20" uuid="11cc84f3-2028-4c79-8738-6db8b92b7cc4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[vom:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="40" y="50" width="80" height="20" uuid="83655fc9-fb63-497b-ba96-0dbb84a27c3d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veranstaltung_beginn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="128" y="50" width="27" height="20" uuid="72837c19-2932-4863-9871-f763b16844d8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[bis:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="161" y="50" width="82" height="20" uuid="934e117b-2566-4c10-a786-6f1fda50960e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veranstaltung_ende}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="76" width="555" height="1" uuid="09ae7635-e70b-4f2e-92a5-f4e56aaebb50"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="86" width="189" height="20" uuid="3f6cbebd-220a-4b44-81d7-3e1967ba3945"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Deutsche TeilnehmerInnen:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="108" width="189" height="20" uuid="9d3f764b-ea29-4c35-af9a-4d4de4d4ae07"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ausländische TeilnehmerInnen:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="130" width="189" height="20" uuid="2784bbb0-ce9d-43ab-8c19-b811d88f5b6b"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BegleiterInnen:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="153" width="189" height="20" uuid="b9527b85-f901-49b7-b25c-c7a1e53fa9fc"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TeilnehmerInnen Gesamt:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="86" width="117" height="20" uuid="fef63885-dc3f-4ecb-8022-1a76f9a0acbd"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Geschäftsbereich:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="86" width="58" height="20" uuid="2ef5b9ce-0e47-4480-83fb-d7d6925d1797"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{geschaeftsbereich}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="406" y="108" width="83" height="20" uuid="74bbe28e-5c70-434e-8380-254da0a5a2d4"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[WBG-Tage:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="108" width="58" height="20" uuid="88768d0b-c21d-4eae-bde1-ac02e749e314"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tage_nach_wbg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="406" y="130" width="83" height="20" uuid="c6bd5e73-d78a-4b90-85ec-320efac3c069"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fachbereich:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="130" width="58" height="20" uuid="a88fdad6-c6f0-481e-8fe0-8fcc672b456b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fachbereich}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="153" width="129" height="20" uuid="ecebdc75-4b65-4af6-b108-5760d100ed51"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Anmeldung über IBB:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="153" width="39" height="20" uuid="cdb103c3-0121-4291-9433-41a5249c0b11"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{anmeldung_ibb} == true) ? "☑" : "☐"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="175" width="145" height="20" uuid="929db524-e35d-4841-b87e-a53bb786a3e1"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Anmeldung beim KOOP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="175" width="39" height="20" uuid="6e96263a-06c0-4194-bd07-27c84424e54e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{anmeldung_partner} == true) ? "☑" : "☐"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="209" width="160" height="20" uuid="ab5e8dd2-9837-4f4a-948e-c96e481e5992"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Vorbereitungstreffen vom:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="166" y="209" width="98" height="20" uuid="6a225810-d954-4577-a3ae-f1753bf3dc34"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vorbereitungstreffen_beginn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="128" y="233" width="32" height="20" uuid="9efcbb43-4b92-4119-82b9-a2d2563b8517"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[bis:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="166" y="233" width="98" height="20" uuid="2a0532a6-8b1e-4c1e-8933-84907c4695f7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vorbereitungstreffen_ende}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="257" width="22" height="20" uuid="8bffd869-5892-412d-82af-19f045bed781"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[in:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="27" y="257" width="237" height="20" uuid="94f1146b-220a-4094-870a-6ea14b68bad0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vorbereitungstreffen_ort}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="200" width="555" height="1" uuid="37b0af8b-5dba-4dc0-9307-de22385a4064"/>
+			</line>
+			<staticText>
+				<reportElement x="271" y="257" width="22" height="20" uuid="9c521e77-cced-4f79-866f-5af31df94adb"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[in:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="296" y="257" width="257" height="20" uuid="32228458-23ef-4ad9-a96d-a2aebc2c9d9b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nachbereitungstreffen_ort}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="209" width="172" height="20" uuid="ee75b12e-679a-4849-9ae5-43261f8fb23d"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nachbereitungstreffen vom:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="449" y="209" width="104" height="20" uuid="53c540fa-7beb-4311-8139-93ca49ddc23c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nachbereitungstreffen_beginn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="411" y="233" width="32" height="20" uuid="99a9133c-235b-44f2-b958-d4a9b5221354"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[bis:]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="449" y="233" width="104" height="20" uuid="d93783e5-385d-4c6b-8dcf-8becd5ca99cb"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nachbereitungstreffen_ende}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="286" width="555" height="1" uuid="bdb50750-3be4-419d-a341-28d2b328e111"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="289" width="174" height="20" uuid="ca246cde-fe0a-4ce2-801c-8920679ed840"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[MaßnahmebegleiterInnen]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="310" width="226" height="20" uuid="81e15f61-8f15-475b-81fa-b6ec69c0a775"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mitarbeiter1_nachname}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="289" width="82" height="20" uuid="4348cc9c-de13-4383-95a1-f8d46be8740f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kostenstelle]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="296" y="310" width="26" height="20" uuid="46a8e336-f2c7-477b-9632-00b705992b5f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mitarbeiter1_kostenstelle}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="358" width="555" height="1" uuid="1823318e-d4ea-4d3f-9bb0-f30af3fa02eb"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="366" width="174" height="20" uuid="63ff0484-fbc9-4af0-b063-7416c0f8c030"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Festgesetzter Verkaufspreis:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="388" width="174" height="20" uuid="f6ec2460-bb52-4288-84f9-94a07dc82ac3"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[EZ-Zuschlag gesamt:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="366" width="90" height="20" uuid="16dbc42a-c800-43f9-bf81-38e455b8f66b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Normalpreis]]></text>
+			</staticText>
+			<textField pattern="#,##0.00 ¤">
+				<reportElement x="177" y="366" width="105" height="20" uuid="11056c73-c15d-4155-a2e8-9d2a86e6202d"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preis1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤">
+				<reportElement x="177" y="388" width="105" height="20" uuid="07ba5db8-b1e8-4475-82cf-27f4a946a867"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preis2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="0" y="410" width="174" height="20" uuid="4af222c2-6702-4b0c-b8b5-37ba85a82fa8"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bedingung3} == null ? "" : $F{bedingung3} + ":"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤" isBlankWhenNull="false">
+				<reportElement x="177" y="410" width="105" height="20" uuid="80d7d797-0f16-444c-b8ac-717af3dd21eb">
+					<printWhenExpression><![CDATA[new Boolean($F{preis3}.compareTo(BigDecimal.ZERO) != 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preis3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="432" width="174" height="20" uuid="7e3884c6-389d-4760-a990-57fa9bc20c1b"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bedingung4} == null ? "" : $F{bedingung4} + ":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="454" width="174" height="20" uuid="1fee82c8-1c5f-453c-9d3b-34e503458975"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bedingung5} == null ? "" : $F{bedingung5} + ":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="476" width="174" height="20" uuid="94ebc529-3812-43e3-8ee6-c35054d42c22"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bedingung6} == null ? "" : $F{bedingung6} + ":"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤" isBlankWhenNull="true">
+				<reportElement x="177" y="432" width="105" height="20" uuid="9d3e2849-dfc1-43f1-83cb-ec81edf3c4d7">
+					<printWhenExpression><![CDATA[new Boolean($F{preis4}.compareTo(BigDecimal.ZERO) != 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preis4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤" isBlankWhenNull="true">
+				<reportElement x="177" y="454" width="105" height="20" uuid="3db4bc34-fe36-41cd-83eb-7f8c8a1530d1">
+					<printWhenExpression><![CDATA[new Boolean($F{preis5}.compareTo(BigDecimal.ZERO) != 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preis5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤" isBlankWhenNull="true">
+				<reportElement x="177" y="476" width="105" height="20" uuid="27411b5c-cfec-483f-ae2a-86a98bc96e9a">
+					<printWhenExpression><![CDATA[new Boolean($F{preis6}.compareTo(BigDecimal.ZERO) != 0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preis6}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="506" width="168" height="20" uuid="442ebe53-edfc-4afb-8558-ce13dcfd939e">
+					<printWhenExpression><![CDATA[$F{kurzbeschreibung_eb_plan} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kurzbeschreibung eb-Plan:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="526" width="554" height="65" uuid="a4b25a44-408e-41b1-a504-e8c264701d2d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kurzbeschreibung_eb_plan}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="502" width="555" height="1" uuid="2d6fb13a-8705-4a62-b468-8c61b83291c6"/>
+			</line>
+			<textField>
+				<reportElement x="194" y="86" width="36" height="20" uuid="ce75bb98-4be0-4dfa-956f-950e20bebc3a"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{zahlendeNichtzahlendeTNDe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="108" width="36" height="20" uuid="af41dea6-ca7b-4a16-a967-1a801cbac3c8"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{zahlendeNichtzahlendeTNAusl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="130" width="36" height="20" uuid="6e9f9b5f-bf24-4140-8e56-f0a0227674f8"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{begleitpersonen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="153" width="36" height="20" uuid="59940911-942e-4442-a1e8-a9e92c3da8a9"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{teilnehmerGesamt}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="331" width="226" height="20" uuid="ee72a6fa-9dee-4456-932d-872a33638d1c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mitarbeiter2_nachname}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="296" y="331" width="26" height="20" uuid="752dbf05-5b46-49dc-a092-dd24c954fac1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mitarbeiter2_kostenstelle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

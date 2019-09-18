@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FahrtkasseBrief" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b06ebe2a-cfdc-4c3f-9382-b9c1f9063bfa">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="227"/>
+	<parameter name="benutzer" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="saldoText" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT f.fahrtkasse_nr, f.saldo, a.vorname, a.nachname, a.strasse, a.plz, a.ort,
+a.anrede_brief, p.planung_nr, p.zusatz
+FROM fahrtkasse f
+LEFT JOIN adresse a ON f.adresse_id = a.adresse_id
+LEFT JOIN planung p ON f.planung_id = p.planung_id
+WHERE f.fahrtkasse_id = 1;]]>
+	</queryString>
+	<field name="fahrtkasse_nr" class="java.lang.Long"/>
+	<field name="saldo" class="java.math.BigDecimal"/>
+	<field name="vorname" class="java.lang.String"/>
+	<field name="nachname" class="java.lang.String"/>
+	<field name="strasse" class="java.lang.String"/>
+	<field name="plz" class="java.lang.String"/>
+	<field name="ort" class="java.lang.String"/>
+	<field name="anrede_brief" class="java.lang.String"/>
+	<field name="planung_nr" class="java.lang.Long"/>
+	<field name="zusatz" class="java.lang.String"/>
+	<variable name="Benutzer" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="22" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="733" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="122" width="279" height="20" uuid="ab82eaed-8922-4133-81c0-e0c5fc3140af"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vorname} + " " + $F{nachname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="142" width="279" height="20" uuid="6546a019-0cf8-4f01-b480-e167cbaea501"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strasse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="162" width="60" height="20" uuid="5ebbe79a-5173-49a7-9701-fcc1ba4c3247"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{plz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="162" width="218" height="20" uuid="c2b86bfd-597b-4616-af15-49b5119dc1f7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ort}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="405" y="204" width="61" height="20" uuid="48476599-2c7d-4534-882a-a0d38a13cc0f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dortmund, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="266" width="154" height="20" uuid="a8d2b05c-ef4f-4163-87c2-aeeba6138f98"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Abschluss der Fahrtkasse]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="155" y="266" width="92" height="20" uuid="f9bb4b70-32bc-46ea-a93e-7b4067853776"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fahrtkasse_nr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="359" width="202" height="20" uuid="b77becd1-bbcb-4c6e-a3c6-d6e45dbae311"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Das Saldo der Fahrtkasse beträgt]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="339" width="554" height="20" uuid="cf4aa476-6a31-40b4-9e9f-1a5ec9f64f4a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Wir haben die o.g. Fahrtkasse für die Veranstaltung " + $F{planung_nr} + "-" + $F{zusatz} + " abgerechnet."]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤">
+				<reportElement x="206" y="359" width="100" height="20" uuid="973d1b86-4f5c-4bbd-b1dd-5c1d8afda79d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="494" width="154" height="20" uuid="453c3007-356b-4449-bede-21899b07e603"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Mit freundlichen Grüßen]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="514" width="261" height="20" uuid="a1ec9786-6987-4d17-a032-eff2701aba8c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{benutzer}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="469" y="204" width="84" height="20" uuid="36309e2c-99e5-4857-bbd0-e238d0a733fc"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="389" width="554" height="80" uuid="66586f45-b26a-4650-a1b0-5cbd14893470"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{saldoText}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="300" width="311" height="20" uuid="4b705ee6-a2e3-4b7a-be48-31467b5c124a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anrede_brief}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
